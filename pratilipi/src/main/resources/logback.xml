@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+            <includeMDC>true</includeMDC>
+            <includeMdcKeyName>message</includeMdcKeyName>
+            <includeMdcKeyName>logger_name</includeMdcKeyName>
+            <includeMdcKeyName>thread_name</includeMdcKeyName>
+            <includeMdcKeyName>level</includeMdcKeyName>
+            <includeMdcKeyName>level_value</includeMdcKeyName>
+            <includeMdcKeyName>globaltraceid</includeMdcKeyName>
+            <includeMdcKeyName>requesturi</includeMdcKeyName>
+            <includeMdcKeyName>userName</includeMdcKeyName>
+            <includeMdcKeyName>requesturl</includeMdcKeyName>
+            <includeMdcKeyName>host</includeMdcKeyName>
+            <includeMdcKeyName>device-id</includeMdcKeyName>
+            <includeMdcKeyName>app-version</includeMdcKeyName>
+            <includeMdcKeyName>device-model-name</includeMdcKeyName>
+            <includeMdcKeyName>device-os-version</includeMdcKeyName>
+            <includeMdcKeyName>carrier-name</includeMdcKeyName>
+            <includeMdcKeyName>ssid</includeMdcKeyName>
+            <includeMdcKeyName>user-agent</includeMdcKeyName>
+            <includeMdcKeyName>x-forwarded-for</includeMdcKeyName>
+            <includeMdcKeyName>x-trans-id</includeMdcKeyName>
+            <includeMdcKeyName>via</includeMdcKeyName>
+            <includeMdcKeyName>tenant</includeMdcKeyName>
+            <includeMdcKeyName>source</includeMdcKeyName>
+            <includeMdcKeyName>connection</includeMdcKeyName>
+            <includeMdcKeyName>device-manufacturer-name</includeMdcKeyName>
+            <includeMdcKeyName>device-location</includeMdcKeyName>
+            <includeMdcKeyName>device-type</includeMdcKeyName>
+            <includeMdcKeyName>device-screen-resolution</includeMdcKeyName>
+            <includeMdcKeyName>first-install-time</includeMdcKeyName>
+            <includeMdcKeyName>device-screen-resolution</includeMdcKeyName>
+            <includeMdcKeyName>x-app-nonce</includeMdcKeyName>
+            <includeMdcKeyName>wifi-mac</includeMdcKeyName>
+            <includeMdcKeyName>querystring</includeMdcKeyName>
+            <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                <maxDepthPerThrowable>40</maxDepthPerThrowable>
+                <maxLength>4086</maxLength>
+                <shortenedClassNameLength>25</shortenedClassNameLength>
+                <exclude>sun\.reflect\..*\.invoke.*</exclude>
+                <exclude>net\.sf\.cglib\.proxy\.MethodProxy\.invoke</exclude>
+                <exclude>org\.apache\.catalina</exclude>
+                <exclude>kafka\.producer\.async.*</exclude>
+                <rootCauseFirst>true</rootCauseFirst>
+                <inlineHash>true</inlineHash>
+            </throwableConverter>
+        </encoder>
+    </appender>
+
+    <logger name="org.apache.kafka" level="INFO" />
+    <logger name="akka.cluster" level="INFO" />
+    <logger name="org.apache.zookeeper" level="WARN" />
+    <logger name="org.I0Itec" level="WARN" />
+    <logger name="kafka.utils" level="INFO" />
+    <logger name="kafka" level="WARN" />
+
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

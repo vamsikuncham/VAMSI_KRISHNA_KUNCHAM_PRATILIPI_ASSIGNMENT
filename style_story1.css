@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  background-color: #f3ebf6;
+  font-family: "Ubuntu", sans-serif;
+}
+h3 {
+  text-align: center;
+  font-size: xx-large;
+}
+p {
+  font-size: large;
+}
+.statistics {
+  display: flex;
+  margin: 20px 140px;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.story1 {
+  text-align: center;
+  margin: 120px 120px;
+}
+.story1 p {
+  margin: 40px 20px;
+  text-align: justify;
+}
+.moral {
+  display: inline;
+  text-align: center;
+}
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: rgb(107, 77, 77);
+  text-align: center;
+  cursor: pointer;
+  width: 10%;
+  font-size: 18px;
+  margin: auto;
+  margin-top: 30px;
+}

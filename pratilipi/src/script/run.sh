@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+java ${NEWRELIC_AGENT} -jar -Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl -Dsun.net.inetaddr.ttl=30 -XX:+${GC_ALGO} ${JVM_EXTRA_PARAM} pratilipi-app.jar --spring.config.location=${CONFIG_ENV}-application.properties --logging.config=${LOGGING_FLAG}
